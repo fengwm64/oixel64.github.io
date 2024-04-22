@@ -23,8 +23,8 @@ hue: 250                         # 主题色调 (例如：红: 0，橙: 60，蓝
 
 # 个人信息
 avatar:                          # 头像图片文件路径，相对于 /source 目录
-author: Your Name
-subtitle: This is the subtitle
+author: fengwm
+subtitle: Life is coding
 links:
   - name: Twitter
     icon: fa-brands fa-twitter      # 访问 https://fontawesome.com/search 获取图标代码
@@ -34,7 +34,7 @@ links:
     url: https://store.steampowered.com
   - name: GitHub
     icon: fa-brands fa-github
-    url: https://github.com
+    url: https://github.com/oixel64
 
 # 侧边栏
 sidebar:
