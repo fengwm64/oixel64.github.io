@@ -76,10 +76,27 @@ git push
 
 再上GitHub设置master为主分支，删除main分支，以gh-pages分支部署Github Pages
 
+# 5.主题
 
+https://github.com/saicaca/hexo-theme-vivia
 
+```shell
+npm install hexo-theme-vivia
 
-# 写作
+hexo config theme vivia
+
+hexo new page about
+```
+
+编辑`_config.yml` 添加:
+
+```yaml
+archive_generator:
+  per_page: 0
+```
+
+# 6.写作
+
 ```shell
 hexo new "[部署]hexo博客 & Github Pages部署记录"
 
