@@ -83,6 +83,8 @@ https://github.com/saicaca/hexo-theme-vivia
 ```shell
 npm install hexo-theme-vivia
 
+mv node_modules/hexo-theme-vivia/example_zh_CN_config.vivia.yml _config.vivia.yml
+
 hexo config theme vivia
 
 hexo new page about
