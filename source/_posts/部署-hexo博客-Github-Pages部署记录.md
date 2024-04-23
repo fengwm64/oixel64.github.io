@@ -97,7 +97,11 @@ archive_generator:
   per_page: 0
 ```
 
-# 6.写作
+# 6.LaTex公式
+
+未找到好的解决方案
+
+# 7.写作
 
 ```shell
 hexo new "[部署]hexo博客 & Github Pages部署记录"
