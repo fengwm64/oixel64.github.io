@@ -12,8 +12,8 @@ favicon:                   # Favicon 文件路径，相对于 /source 目录（�
 
 # 横幅图片
 banner:
-  enable: false                  # 是否显示横幅图片
-  url:                           # 横幅图片文件路径，相对于 /source 目录，也可填写网络图片 URL
+  enable: true                  # 是否显示横幅图片
+  url: ./pic/tt.jpg             # 横幅图片文件路径，相对于 /source 目录，也可填写网络图片 URL
   position: center               # 决定图片将如何被裁剪，对应 CSS 中的 "object-position" 属性
   onAllPages: true               # 在所有页面上显示横幅，而不是只在首页显示
 
