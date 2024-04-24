@@ -64,4 +64,4 @@ deploy:
   branch: gh-pages
 archive_generator:
   per_page: 0
-post_asset_folder: true
+post_asset_folder: false
