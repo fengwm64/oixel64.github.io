@@ -114,7 +114,37 @@ archive_generator:
 
 # 6.LaTex公式
 
-未找到好的解决方案
+https://github.com/next-theme/hexo-filter-mathjax
+
+https://github.com/hexojs/hexo-renderer-pandoc
+
+```shell
+npm install hexo-filter-mathjax
+
+hexo clean
+```
+
+配置_config.yml:
+
+```yaml
+mathjax:
+  tags: none # or 'ams' or 'all'
+  single_dollars: true # enable single dollar signs as in-line math delimiters
+  cjk_width: 0.9 # relative CJK char width
+  normal_width: 0.6 # relative normal (monospace) width
+  append_css: true # add CSS to pages rendered by MathJax
+  every_page: true # if true, every page will be rendered by MathJax regardless the `mathjax` setting in Front-matter
+  packages: # extra packages to load
+  extension_options: {}
+    # you can put your extension options here
+    # see http://docs.mathjax.org/en/latest/options/input/tex.html#tex-extension-options for more detail
+```
+本地电脑安装配置Pandoc后：
+```shell
+npm uninstall hexo-renderer-marked
+
+npm install hexo-renderer-pandoc --save
+```
 
 # 7.写作
 
