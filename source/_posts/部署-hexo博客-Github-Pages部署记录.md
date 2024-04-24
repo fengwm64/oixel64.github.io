@@ -2,6 +2,7 @@
 title: '[部署]hexo博客 & Github Pages部署记录'
 date: 2024-04-22 21:41:20
 tags: 部署
+categories: 部署
 ---
 
 # 1.Windows环境配置
@@ -72,6 +73,20 @@ git remote add origin git@github.com:oixel64/oixel64.github.io.git
 git pull --rebase git@github.com:oixel64/oixel64.github.io.git master
 
 git push
+```
+
+设置`.gitignore`
+
+``` gitignore
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+_multiconfig.yml
+public/
 ```
 
 再上GitHub设置master为主分支，删除main分支，以gh-pages分支部署Github Pages
