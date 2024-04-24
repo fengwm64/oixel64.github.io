@@ -10,6 +10,11 @@ home:
 
 favicon:                   # Favicon 文件路径，相对于 /source 目录（若你的 Favicon 文件位于 /source/favicon.png 则填写 "/favicon.png"）
 
+toc:
+  enable: true #是否启动侧边栏
+  number: true  #自动将列表编号添加到toc。
+  wrap: false #true时是当标题宽度很长时，自动换到下一行
+
 # 横幅图片
 banner:
   enable: true                  # 是否显示横幅图片
