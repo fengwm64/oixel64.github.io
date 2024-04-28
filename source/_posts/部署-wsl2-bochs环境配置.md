@@ -13,7 +13,7 @@ wsl2 - Ubuntu 22.04 + VSCode + bochs + xfce4 + VcXsrv
 
 **笔者环境 wsl2 - Ubuntu 22.04**
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282017347.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282017347.png)
 
 
 ## 0. 安装WSL2 & VSCode & 终端
@@ -32,11 +32,11 @@ wsl2 - Ubuntu 22.04 + VSCode + bochs + xfce4 + VcXsrv
 
 ​	然后点击左下绿色按钮，按提示连接WSL
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282017839.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282017839.png)
 
 
 **终端**：Microsoft Store就有
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282018831.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282018831.png)
 
 
 ## 1. 安装软件包
@@ -70,37 +70,37 @@ sudo apt-get install -y gdb
 
 下载地址：https://sourceforge.net/projects/vcxsrv/files/latest/download
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282018380.png)
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282018860.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282018380.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282018860.png)
 
 选择**one large window**
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282019190.png)
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282019623.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282019190.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282019623.png)
 
 
 **一定勾选Disable access control**
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282019762.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282019762.png)
 
 看到下图即为成功
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282020653.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282020653.png)
 
 ***解决高DPI模糊问题**
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282020086.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282020086.png)
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282020064.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282020064.png)
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282021124.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282021124.png)
 
 
 ### 2.2 安装xfce4
 
 `sudo apt install -y xfce4`
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282021947.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282021947.png)
 
 
 ### 2.3 配置
@@ -125,11 +125,11 @@ https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134741381-118838
 
 **此外，当看到防火墙选项时，请同意其通过**
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282021946.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282021946.png)
 
 **小技巧**：当在终端执行`sudo startxfce4`后，xfce4会在前台输出log无法执行其他命令。此时可以再开一个终端窗口执行其他命令（比如开bochs什么的）
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282021851.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282021851.png)
 
 **问题解决**：
 当连接到图形化桌面时，如果一阵未使用桌面，会导致桌面没有反应直接卡死
@@ -148,7 +148,7 @@ bochs 2.6.2：https://sourceforge.net/projects/bochs/files/bochs/2.6.2/bochs-2.6
 
 `wget https://sourceforge.net/projects/bochs/files/bochs/2.6.2/bochs-2.6.2.tar.gz`
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282022435.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282022435.png)
 
 ### 3.2 解压
 
@@ -166,7 +166,7 @@ bochs 2.6.2：https://sourceforge.net/projects/bochs/files/bochs/2.6.2/bochs-2.6
 
 `tar -zxvf bochs-2.6.2.tar.gz`
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282022925.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282022925.png)
 
 ### 3.3 配置
 
@@ -234,23 +234,23 @@ IBS =-lm -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lgdk_pi
 
 来源：《操作系统真相还原》
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282022014.jpeg)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282022014.jpeg)
 
 
 ### 3.4 编译安装
 
 编译：`make`
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282023943.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282023943.png)
 
 安装：`sudo make install`
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282023112.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282023112.png)
 
 
 bochs安装目录如下：
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282023078.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282023078.png)
 
 
 ### 3.5 配置bochs
@@ -329,24 +329,24 @@ ata0: enabled=1,ioaddr1=0x1f0,ioaddr2=0x3f0,irq=14
 
 所有需要输入的地方请见下图中框出部分
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282023578.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282023578.png)
 
 
 **在终端输入`c` 在VcXsrv下的bochs的黑色窗口出现bochs的UI**
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282023846.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282023846.png)
 
 
 看到下面的窗口，证明已经成功啦！！！！
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282024438.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282024438.png)
 
 
 ---
 
 **常见问题**
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282024903.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282024903.png)
 
 
 **原因**：disk有tab（空格）
@@ -359,26 +359,26 @@ ata0: enabled=1,ioaddr1=0x1f0,ioaddr2=0x3f0,irq=14
 
 **原因**：看图，不应该**换行**
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282024766.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282024766.png)
 
 
 **解决**：不换行喽
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282024846.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282024846.png)
 
 
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282025824.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282025824.png)
 
 **原因**：配置编译的时候没写gdb
 
 **解决**：配置文件就不要加gdb喽，注释掉
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282025712.png)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282025712.png)
 
 
 
-![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282025529.jpeg)
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282025529.jpeg)
 
 **原因**：配置文件没有放在bochs安装目录的bin目录下
 
