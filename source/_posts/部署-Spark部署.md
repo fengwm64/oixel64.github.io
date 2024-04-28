@@ -21,7 +21,7 @@ categories:
 
 --------------------------------------------
 
-写了一个shell脚本，在四台服务器上创建用户`dase-dis`:
+写了一个shell脚本，在四台服务器上创建用户`dase-dis`（注意确保四台服务器的用户名和密码一致才可以使用）:
 
 先`sudo apt install sshpass`，在Linux下执行脚本：
 
@@ -29,7 +29,7 @@ categories:
 #!/bin/bash
 
 # 服务器IP地址列表
-ip_list=("47.236.20.161" "47.236.157.142" "8.219.108.46" "47.236.115.157")
+ip_list=("xxxx" "xxxx" "xxxx" "xxxx")
 
 # 设置统一的密码
 password="admin"
