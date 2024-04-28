@@ -21,16 +21,24 @@ wsl2 - Ubuntu 22.04 + VSCode + bochs + xfce4 + VcXsrv
 网上教程千千万，请自行查找
 
 **WSL2**：[ WSL2安装教程_pengege666的博客-CSDN博客](https://blog.csdn.net/weixin_42888638/article/details/127129727)
-​  	切换清华源：[ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
-​	  	备份：`sudo cp /etc/apt/sources.list /etc/apt/sources.bak`
-​		修改：`sudo vim /etc/apt/sources.list`
-​		更新：`sudo apt update`
+​
+
+切换清华源：[ubuntu | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
+​
+
+备份：`sudo cp /etc/apt/sources.list /etc/apt/sources.bak`
+​
+
+修改：`sudo vim /etc/apt/sources.list`
+
+更新：`sudo apt update`
+
 
 **VSCode**：[Visual Studio Code - Code Editing. Redefined](https://code.visualstudio.com/)
 
-​	安装插件：WSL
+安装插件：WSL
 
-​	然后点击左下绿色按钮，按提示连接WSL
+​然后点击左下绿色按钮，按提示连接WSL
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/imgs202404282017839.png)
 

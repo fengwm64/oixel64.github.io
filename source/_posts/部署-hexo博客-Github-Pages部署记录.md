@@ -149,7 +149,14 @@ npm uninstall hexo-renderer-marked
 npm install hexo-renderer-pandoc --save
 ```
 
-# 7.写作
+# 7.图床
+
+不重复造轮子，这篇知乎写得非常好了：
+
+https://zhuanlan.zhihu.com/p/112912928
+
+
+# 8.写作
 
 ```shell
 hexo new "[部署]hexo博客 & Github Pages部署记录"
@@ -165,7 +172,9 @@ git commit -m '...'
 git push
 ```
 
-# 8.新电脑写作
+-----------------------------
+
+**新电脑写作**
 
 基本工作nodejs+git+pandoc，GitHub仓库上添加ssh公钥，在新电脑执行：
 
@@ -203,4 +212,4 @@ N
 hexo -V
 ```
 
-重复 7.写作
+重复 写作 部分
