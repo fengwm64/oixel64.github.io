@@ -162,3 +162,42 @@ git commit -m '...'
 git push
 ```
 
+# 8.新电脑写作
+
+基本工作nodejs+git+pandoc，GitHub仓库上添加ssh公钥，在新电脑执行：
+
+```shell
+ssh-keygen -t rsa
+
+cat C:\Users\Feng\.ssh\id_rsa.pub
+```
+
+克隆项目：
+```shell
+git clone git@github.com:oixel64/oixel64.github.io.git
+
+cd .\oixel64.github.io\
+
+npm config set registry https://registry.npmmirror.com
+
+npm install -g hexo-cli
+
+npm install --save hexo-deployer-git
+
+npm install
+```
+
+若npm install失败，管理员开启powershell
+
+```shell
+set-ExecutionPolicy RemoteSigned
+
+N
+```
+
+验证：
+```shell
+hexo -V
+```
+
+重复 7.写作
