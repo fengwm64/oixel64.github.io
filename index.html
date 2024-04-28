@@ -463,6 +463,112 @@ mjx-container[display="true"] + br {
    
 
 
+<article id="post-最优化-拉格朗日乘子法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/04/24/%E6%9C%80%E4%BC%98%E5%8C%96-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95/">[最优化]拉格朗日乘子法</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-04-24T14:13:31.000Z" itemprop="datePublished">2024-04-24</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.8k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KKT%E6%9D%A1%E4%BB%B6/" rel="tag">KKT条件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5/" rel="tag">拉格朗日</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E4%BC%98%E5%8C%96/" rel="tag">最优化</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              0.无约束优化问题
+问题形式： 
+对一个无约束问题，是一个局部极小值的必要条件是：
+
+一阶必要条件，在处取得0梯度： 
+二阶必要条件，在该点处黑塞矩阵(Hessian)半正定：
+，
+
+是任意的非零向量。
+
+是向量  关于黑塞矩阵
+
+的二次型。
+不等式 
+表示二次型是半正定的，也就是说，对于任何非零向量 ，二次型的值都大于等于零。
+
+
+
+Hessian矩阵的正定性在判断优化算法可行性时非常有用，简单地说，黑塞矩阵正定，则
+
+函数的二阶偏导数恒 &gt; 0
+函数的变化率（斜率）即一阶导数始终处于递增状态
+函数为凸
+
+
+1.等式约束问题
+问题形式： 
+举例：
+1.1 感性角度
+上述问题可视化如下：
+
+图中左上角的橙色点处，往哪里走达到约束下的最小值？
+假设是无约束优化问题，我们知道直接往目标函数负梯度方向走，就可以到达最小
+但是现在有一个等式的约束，只能在约束（实际上就是图中的橙色圆）上移动，在圆上移动只能沿着切线方向移动，只要保证每次移动都满足移动方向和目标函数负梯度方向夹角小于90°，就是在向极小值移动！
+当移动...
+            
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/04/24/%E6%9C%80%E4%BC%98%E5%8C%96-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+
+
+
+   
+
+
 <article id="post-最优化-凸集" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
@@ -553,112 +659,6 @@ https://www.bilibili.com/video/BV1rE411H7P6
     <a class="right-panel  non-pic  "
       
       href="/2024/04/24/%E6%9C%80%E4%BC%98%E5%8C%96-%E5%87%B8%E9%9B%86/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-   
-
-
-<article id="post-最优化-拉格朗日乘子法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/04/23/%E6%9C%80%E4%BC%98%E5%8C%96-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95/">[最优化]拉格朗日乘子法</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-04-23T14:13:31.000Z" itemprop="datePublished">2024-04-23</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            3.8k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KKT%E6%9D%A1%E4%BB%B6/" rel="tag">KKT条件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5/" rel="tag">拉格朗日</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E4%BC%98%E5%8C%96/" rel="tag">最优化</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              0.无约束优化问题
-问题形式： 
-对一个无约束问题，是一个局部极小值的必要条件是：
-
-一阶必要条件，在处取得0梯度： 
-二阶必要条件，在该点处黑塞矩阵(Hessian)半正定：
-，
-
-是任意的非零向量。
-
-是向量  关于黑塞矩阵
-
-的二次型。
-不等式 
-表示二次型是半正定的，也就是说，对于任何非零向量 ，二次型的值都大于等于零。
-
-
-
-Hessian矩阵的正定性在判断优化算法可行性时非常有用，简单地说，黑塞矩阵正定，则
-
-函数的二阶偏导数恒 &gt; 0
-函数的变化率（斜率）即一阶导数始终处于递增状态
-函数为凸
-
-
-1.等式约束问题
-问题形式： 
-举例：
-1.1 感性角度
-上述问题可视化如下：
-
-图中左上角的橙色点处，往哪里走达到约束下的最小值？
-假设是无约束优化问题，我们知道直接往目标函数负梯度方向走，就可以到达最小
-但是现在有一个等式的约束，只能在约束（实际上就是图中的橙色圆）上移动，在圆上移动只能沿着切线方向移动，只要保证每次移动都满足移动方向和目标函数负梯度方向夹角小于90°，就是在向极小值移动！
-当移动...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/04/23/%E6%9C%80%E4%BC%98%E5%8C%96-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
