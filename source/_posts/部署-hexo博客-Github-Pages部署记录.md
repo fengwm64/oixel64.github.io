@@ -8,7 +8,10 @@ categories: 部署
 # 1.Windows环境配置
 
 - Git https://git-scm.com/
+
 - Node https://nodejs.org/en
+
+- Pandoc https://pandoc.org/
 
 # 2.安装Hexo
 
