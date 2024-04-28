@@ -6,9 +6,7 @@ tags:
 - wsl2
 - bochs
 - 操作系统
-categories: 
-- 部署
-- 操作系统
+categories: 部署
 ---
 
 wsl2 - Ubuntu 22.04 + VSCode + bochs + xfce4 + VcXsrv
