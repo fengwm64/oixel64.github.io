@@ -13,8 +13,7 @@ wsl2 - Ubuntu 22.04 + VSCode + bochs + xfce4 + VcXsrv
 
 **笔者环境 wsl2 - Ubuntu 22.04**
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420133109488-1483721842.png)
-
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282017347.png)
 
 
 ## 0. 安装WSL2 & VSCode & 终端
@@ -33,12 +32,11 @@ wsl2 - Ubuntu 22.04 + VSCode + bochs + xfce4 + VcXsrv
 
 ​	然后点击左下绿色按钮，按提示连接WSL
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420133145985-1139654339.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282017839.png)
 
 
 **终端**：Microsoft Store就有
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230421130405538-1624760680.png)
-
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282018831.png)
 
 
 ## 1. 安装软件包
@@ -72,37 +70,37 @@ sudo apt-get install -y gdb
 
 下载地址：https://sourceforge.net/projects/vcxsrv/files/latest/download
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134429054-358612362.png)
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134449834-650116383.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282018380.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282018860.png)
 
 选择**one large window**
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134501575-1115983286.png)
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134510694-933931507.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282019190.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282019623.png)
 
 
 **一定勾选Disable access control**
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134524214-513922816.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282019762.png)
 
 看到下图即为成功
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134537056-251641745.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282020653.png)
 
 ***解决高DPI模糊问题**
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134625246-755424886.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282020086.png)
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134638305-1079137345.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282020064.png)
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134648360-304047365.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282021124.png)
 
 
 ### 2.2 安装xfce4
 
 `sudo apt install -y xfce4`
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134720388-1427608973.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282021947.png)
 
 
 ### 2.3 配置
@@ -116,7 +114,7 @@ sudo apt-get install -y gdb
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 ```
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134741381-1188389658.png)
+https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134741381-1188389658.png
 
 
 **添加后执行`source ~/.bashrc`命令。**
@@ -127,10 +125,11 @@ export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/nu
 
 **此外，当看到防火墙选项时，请同意其通过**
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134759256-1237532277.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282021946.png)
 
 **小技巧**：当在终端执行`sudo startxfce4`后，xfce4会在前台输出log无法执行其他命令。此时可以再开一个终端窗口执行其他命令（比如开bochs什么的）
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230421125101116-687537558.png)
+
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282021851.png)
 
 **问题解决**：
 当连接到图形化桌面时，如果一阵未使用桌面，会导致桌面没有反应直接卡死
@@ -149,7 +148,7 @@ bochs 2.6.2：https://sourceforge.net/projects/bochs/files/bochs/2.6.2/bochs-2.6
 
 `wget https://sourceforge.net/projects/bochs/files/bochs/2.6.2/bochs-2.6.2.tar.gz`
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420133314035-1670243439.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282022435.png)
 
 ### 3.2 解压
 
@@ -167,7 +166,7 @@ bochs 2.6.2：https://sourceforge.net/projects/bochs/files/bochs/2.6.2/bochs-2.6
 
 `tar -zxvf bochs-2.6.2.tar.gz`
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420133239873-693223833.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282022925.png)
 
 ### 3.3 配置
 
@@ -231,22 +230,28 @@ IBS =-lm -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lgdk_pi
 ```
 
 
-为啥要搞这步捏？ 来源：《操作系统真相还原》![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420133518098-220819599.jpg)
+为啥要搞这步捏？ 
+
+来源：《操作系统真相还原》
+
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282022014.jpeg)
 
 
 ### 3.4 编译安装
 
 编译：`make`
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420133649322-1267685748.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282023943.png)
 
 安装：`sudo make install`
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420133758733-164739630.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282023112.png)
+
 
 bochs安装目录如下：
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420133835119-509379829.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282023078.png)
+
 
 ### 3.5 配置bochs
 
@@ -324,24 +329,25 @@ ata0: enabled=1,ioaddr1=0x1f0,ioaddr2=0x3f0,irq=14
 
 所有需要输入的地方请见下图中框出部分
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230421131109117-322949858.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282023578.png)
 
 
 **在终端输入`c` 在VcXsrv下的bochs的黑色窗口出现bochs的UI**
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230421131213785-1865061577.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282023846.png)
 
 
 看到下面的窗口，证明已经成功啦！！！！
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230421124224354-1088943758.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282024438.png)
 
 
 ---
 
 **常见问题**
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134105984-2002691368.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282024903.png)
+
 
 **原因**：disk有tab（空格）
 
@@ -349,30 +355,30 @@ ata0: enabled=1,ioaddr1=0x1f0,ioaddr2=0x3f0,irq=14
 
 
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134127151-533292238.png)
+![]()
 
 **原因**：看图，不应该**换行**
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134249062-685439539.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282024766.png)
+
 
 **解决**：不换行喽
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134303458-579618952.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282024846.png)
 
 
 
-
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134340786-1518101424.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282025824.png)
 
 **原因**：配置编译的时候没写gdb
 
 **解决**：配置文件就不要加gdb喽，注释掉
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230420134359230-750212926.png)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282025712.png)
 
 
 
-![](https://img2023.cnblogs.com/blog/3129870/202304/3129870-20230421125345618-1610024171.jpg)
+![](https://raw.githubusercontent.com/oixel64/imgs/main/imgs202404282025529.jpeg)
 
 **原因**：配置文件没有放在bochs安装目录的bin目录下
 
