@@ -19,6 +19,8 @@ categories:
 | 3    | 47.236.157.142 | root   | qwe157258. | Ubuntu 22.04 \| 2vCPU/2GiB| 冯  计算节点 |
 | 4    | 47.236.115.157 | root   | qwe157258. | Ubuntu 22.04 \| 2vCPU/1GiB| 冯 客户机  |
 
+## 1.1 创建用户
+
 写了一个shell脚本，在四台服务器上创建用户`dase-dis`（注意确保四台服务器的用户名和密码一致才可以使用）:
 
 先`sudo apt install sshpass`，在Linux下执行脚本：
@@ -54,6 +56,10 @@ done
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404282346549.png)
 
 -------------------------------------------
+
+## 1.2 服务器之间免密登录
+
+实现四台服务器之间ssh免密登录，在本地执行脚本：
 
 ```sh
 #!/bin/bash
