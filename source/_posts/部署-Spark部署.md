@@ -53,13 +53,15 @@ EOF
 done
 ```
 
+执行结果：
+
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404282346549.png)
 
 -------------------------------------------
 
 ## 1.2 服务器之间免密登录
 
-实现四台服务器之间ssh免密登录，在本地执行脚本：
+实现四台服务器之间ssh免密登录，在本地执行脚本 ：
 
 ```sh
 #!/bin/bash
@@ -94,3 +96,9 @@ done
 
 echo "SSH key configured for all servers successfully."
 ```
+
+执行结果如下，创建的密钥时需要输入`yes`：
+
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292026350.png)
+
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292039708.png)
