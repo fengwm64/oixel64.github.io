@@ -1,7 +1,5 @@
 hexo cl
 
-git pull
-
 hexo g -d
 
 git add .
