@@ -15,9 +15,120 @@ categories:
 
 地址：https://archive.apache.org/dist/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz
 
-**在四台机上执行：**
+**在主节点上执行：**
 
 - `wget https://archive.apache.org/dist/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz`
+
+- `tar -zxvf hadoop-2.10.1.tar.gz`
+
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301317432.png)
+
+- `cd ~/hadoop-2.10.1/`
+
+- `./bin/hadoop version`
+
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301319210.png)
+
+# 2.修改配置
+
+**在主节点上执行：**
+
+- 修改 slaves 文件: `vim ~/hadoop-2.10.1/etc/hadoop/slaves`
+
+修改为：
+```
+ecnu02
+ecnu03
+```
+
+---------------
+
+- 修改 core-site.xml: `vim ~/hadoop-2.10.1/etc/hadoop/core-site.xml`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+  <property>
+    <name>hadoop.tmp.dir</name>
+    <value>/home/dase-dis/hadoop-2.10.1/tmp</value>
+  </property>
+  <!--以下填写主节点主机名-->
+  <property>
+    <name>fs.defaultFS</name>
+    <value>hdfs://ecnu01:9000</value>
+  </property>
+</configuration>
+```
+
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301329297.png)
+
+---------------
+
+- 修改 hdfs-site.xml: `vim ~/hadoop-2.10.1/etc/hadoop/hdfs-site.xml`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+  <property>
+    <name>dfs.replication</name>
+    <value>2</value>
+  </property>
+  <property>
+    <name>dfs.namenode.name.dir</name>
+    <value>file:/home/dase-dis/hadoop-2.10.1/tmp/dfs/name</value>
+  </property>
+  <property>
+    <name>dfs.namenode.name.dir</name>
+    <value>file:/home/dase-dis/hadoop-2.10.1/tmp/dfs/name</value>
+  </property>
+</configuration>
+```
+--------------
+
+好了好了，终于改完了，接下来将改好的这份hadoop拷贝到其余三台机：
+
+- 从节点1：`scp -r /home/dase-dis/hadoop-2.10.1 dase-dis@ecnu02:/home/dase-dis/`
+
+- 从节点2：`scp -r /home/dase-dis/hadoop-2.10.1 dase-dis@ecnu03:/home/dase-dis/`
+
+- 客户端：`scp -r /home/dase-dis/hadoop-2.10.1 dase-dis@ecnu04:/home/dase-dis/`
+
+其实打包一下拷贝会更加好的，这里偷懒了
+
 
 
 ## 2.4 修改.bashrc文件
