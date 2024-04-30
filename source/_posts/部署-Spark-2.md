@@ -9,7 +9,15 @@ categories:
 - 部署
 ---
 
+请确保已经完成1
 
+# 1.下载
+
+地址：https://archive.apache.org/dist/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz
+
+**在四台机上执行：**
+
+- `wget https://archive.apache.org/dist/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz`
 
 
 ## 2.4 修改.bashrc文件
