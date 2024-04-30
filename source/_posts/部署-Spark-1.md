@@ -1,12 +1,15 @@
 ---
-title: '[部署]Spark部署'
+title: '[部署]Spark部署-1 SSH & JDK'
 date: 2024-04-28 19:48:24
 tags: 
 - 部署 
-- Spark
+- JDK
+- SSH
 categories: 
 - 部署
 ---
+
+如果不熟悉Linux命令行就不要看了
 
 # 1.互联互通
 
@@ -171,105 +174,31 @@ ssh dase-dis@ecnu04
 exit
 ```
 
-## 1.3 配置Java环境
+# 2.配置Java环境
 
+- JDK 1.8 https://www.oracle.com/cn/java/technologies/javase/javase8-archive-downloads.html
 
-## 2.4 修改.bashrc文件
+在四台机器上配置：
 
-登录**客户机**，用户`dase-dis`：
+**可能你需要在上面oracle网站登陆后上手动找到下载地址，然后使用wget下载**
 
-- `vi ~/.bashrc`
+- 下载：`wget https://download.oracle.com/otn/java/jdk/8u202-b08/1961070e4c9b4e26a04e7f5a083f551e/jdk-8u202-linux-x64.tar.gz`
 
-- 按`i`进入编辑模式，按方向键到文件最后一行，输入`export TERM=xterm-color`
+- 解压：`tar -zxvf jdk-8u202-linux-x64.tar.gz`
 
-![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292240144.png)
+- 环境变量配置：`sudo vi /etc/profile`
 
-- 按`Esc`键退出编辑模式，输入`:wq`保存退出
-
-- 使`.bashrc`配置生效：`source ~/.bashrc`
-
-
-## 1.4 下载并安装Spark
-
-在四台机上下载并安装Spark:
-
-- 下载安装包：`wget http://archive.apache.org/dist/spark/spark-2.4.7/spark-2.4.7-bin-without-hadoop.tgz`
-
-- 解压安装包：`tar -zxvf spark-2.4.7-bin-without-hadoop.tgz`
-
-- 改名：`mv ~/spark-2.4.7-bin-without-hadoop ~/spark-2.4.7`
-
-下载：
-![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292248585.png)
-
-上述步骤完成后：
-![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292257700.png)
-
-
-## 1.5 修改配置
-
-- `cp /home/dase-dis/spark-2.4.7/conf/spark-env.sh.template /home/dase-dis/spark-2.4.7/conf/spark-env.sh`
-
-- `vim /home/dase-dis/spark-2.4.7/conf/spark-env.sh`
+- 添加以下内容：
 
 ```shell
-# 因为下载的是Hadoop Free版本的Spark, 所以需要配置Hadoop的路径
-HADOOP_HOME=/home/dase-dis/hadoop-2.10.1
-export SPARK_DIST_CLASSPATH=$($HADOOP_HOME/bin/hadoop classpath)
-export LD_LIBRARY_PATH=$HADOOP_HOME/lib/native:$LD_LIBRARY_PATH
+# 路径自己配自己的
+export JAVA_HOME=/home/dase-dis/jdk1.8.0_202
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.ja
+export PATH=$PATH:$JAVA_HOME/bin
 ```
 
+- 刷新：`source /etc/profile`
 
-- sudo apt-get install openssh-server
-- sudo hostnamectl set-hostname ecnu01
-- sudo hostnamectl set-hostname ecnu02
-- sudo hostnamectl set-hostname ecnu03
-- sudo hostnamectl set-hostname ecnu04
+- 验证：`java -version`
 
-![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292322849.png)
-
-
------------
-
-sudo vim /etc/hosts
-
-```sh
-# IP地址 主机名
-
-8.219.108.46 ecnu01
-47.236.20.161 ecnu02
-47.236.157.142 ecnu03
-47.236.115.157 ecnu04
-```
-
-除主机外的三台机：
-
-- ssh-keygen -t rsa
-- ssh dase-dis@ecnu01 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub'
-- sudo service ssh restart && chmod 700 ~/.ssh  && chmod 600 ~/.ssh/authorized_keys
-
-![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292330151.png)
-
-主机：
-
-scp ~/.ssh/authorized_keys dase-dis@ecnu02:/home/dase-dis/.ssh/authorized_keys
-scp ~/.ssh/authorized_keys dase-dis@ecnu03:/home/dase-dis/.ssh/authorized_keys
-scp ~/.ssh/authorized_keys dase-dis@ecnu04:/home/dase-dis/.ssh/authorized_keys
-
-= for host in ecnu02 ecnu03 ecnu04; do scp ~/.ssh/authorized_keys dase-dis@$host:/home/dase-dis/.ssh/; done
-
-sudo service ssh restart && chmod 700 ~/.ssh  && chmod 600 ~/.ssh/authorized_keys
-
-
-![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292335551.png)
-
-
-验证：互相ssh过去看看要不要输入密码
-ssh dase-dis@ecnu01
-exit
-ssh dase-dis@ecnu02
-exit
-ssh dase-dis@ecnu03
-exit
-ssh dase-dis@ecnu04
-exit
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301104527.png)
