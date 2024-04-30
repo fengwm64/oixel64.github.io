@@ -20,16 +20,25 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="1.环境准备 在哥们(hhh)的帮助下，搞到四台阿里云服务器，不过挺寒碜的配置：            编号 IP 用户名 密码 系统配置 备注     1 8.219.108.46 root qwe157258. Ubuntu 22.04 | 2vCPU&#x2F;4GiB 冯 主节点   2 47.236.20.161 root qwe">
+  <meta name="description" content="1.互联互通 在哥们(hhh)的帮助下，搞到四台阿里云服务器，不过挺寒碜的配置：            编号 IP 用户名 密码 系统配置 备注     1 8.219.108.46 root qwe157258. Ubuntu 22.04 | 2vCPU&#x2F;4GiB 冯 主节点   2 47.236.20.161 root qwe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[部署]Spark部署">
 <meta property="og:url" content="http://example.com/2024/04/28/%E9%83%A8%E7%BD%B2-Spark%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="fengwm的coding小站">
-<meta property="og:description" content="1.环境准备 在哥们(hhh)的帮助下，搞到四台阿里云服务器，不过挺寒碜的配置：            编号 IP 用户名 密码 系统配置 备注     1 8.219.108.46 root qwe157258. Ubuntu 22.04 | 2vCPU&#x2F;4GiB 冯 主节点   2 47.236.20.161 root qwe">
+<meta property="og:description" content="1.互联互通 在哥们(hhh)的帮助下，搞到四台阿里云服务器，不过挺寒碜的配置：            编号 IP 用户名 密码 系统配置 备注     1 8.219.108.46 root qwe157258. Ubuntu 22.04 | 2vCPU&#x2F;4GiB 冯 主节点   2 47.236.20.161 root qwe">
 <meta property="og:locale">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404282346549.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292322849.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292330151.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292335551.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292240144.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292248585.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292257700.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292322849.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292330151.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292335551.png">
 <meta property="article:published_time" content="2024-04-28T11:48:24.000Z">
-<meta property="article:modified_time" content="2024-04-28T15:54:32.272Z">
+<meta property="article:modified_time" content="2024-04-30T02:33:47.662Z">
 <meta property="article:author" content="fengwm">
 <meta property="article:tag" content="部署">
 <meta property="article:tag" content="Spark">
@@ -204,7 +213,7 @@ mjx-container[display="true"] + br {
       <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
     </a>
     
-      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS Feed">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
       </a>
     
@@ -223,7 +232,7 @@ mjx-container[display="true"] + br {
       <a class="nav-dropdown-link" href="/about">About</a>
     
     
-      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS Feed">RSS</a>
      
     </div>
 </div>
@@ -271,7 +280,7 @@ mjx-container[display="true"] + br {
 
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">分类</h3>
+      <h3 class="widget-title">Categories</h3>
       <div class="category-box">
             <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
                 操作系统
@@ -306,7 +315,7 @@ mjx-container[display="true"] + br {
       
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">标签</h3>
+      <h3 class="widget-title">Tags</h3>
       <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/FFT/" rel="tag">FFT</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/FIFO/" rel="tag">FIFO</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/KKT%E6%9D%A1%E4%BB%B6/" rel="tag">KKT条件</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LRU/" rel="tag">LRU</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/OPT/" rel="tag">OPT</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/bochs/" rel="tag">bochs</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/wsl2/" rel="tag">wsl2</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%87%B8%E5%8C%85/" rel="tag">凸包</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%87%B8%E7%BB%84%E5%90%88/" rel="tag">凸组合</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%87%B8%E9%9B%86/" rel="tag">凸集</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6/" rel="tag">多线程调度</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5/" rel="tag">拉格朗日</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%80%E4%BC%98%E5%8C%96/" rel="tag">最优化</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%A2%AF%E5%BA%A6/" rel="tag">梯度</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%AD%BB%E9%94%81/" rel="tag">死锁</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6/" rel="tag">磁盘调度</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/" rel="tag">聚类算法</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" rel="tag">计算机视觉</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="tag">逻辑回归</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95/" rel="tag">银行家算法</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2/" rel="tag">页面置换</a></li></ul>
     </div>
   </div>
@@ -352,7 +361,7 @@ mjx-container[display="true"] + br {
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.7k 词 
+            4.3k words 
           </div>
         </div>
         
@@ -361,7 +370,7 @@ mjx-container[display="true"] + br {
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="环境准备">1.环境准备</h1>
+          <h1 id="互联互通">1.互联互通</h1>
 <p>在哥们(hhh)的帮助下，搞到四台阿里云服务器，不过挺寒碜的配置：</p>
 <table>
 <colgroup>
@@ -397,7 +406,7 @@ mjx-container[display="true"] + br {
 <td>root</td>
 <td>qwe157258.</td>
 <td>Ubuntu 22.04 | 2vCPU/1GiB</td>
-<td>庄 计算节点</td>
+<td>庄 从节点</td>
 </tr>
 <tr class="odd">
 <td>3</td>
@@ -405,7 +414,7 @@ mjx-container[display="true"] + br {
 <td>root</td>
 <td>qwe157258.</td>
 <td>Ubuntu 22.04 | 2vCPU/2GiB</td>
-<td>冯 计算节点</td>
+<td>冯 从节点</td>
 </tr>
 <tr class="even">
 <td>4</td>
@@ -413,17 +422,145 @@ mjx-container[display="true"] + br {
 <td>root</td>
 <td>qwe157258.</td>
 <td>Ubuntu 22.04 | 2vCPU/1GiB</td>
-<td>冯 客户机</td>
+<td>冯 客户端</td>
 </tr>
 </tbody>
 </table>
-<hr>
+<h2 id="创建用户">1.1 创建用户</h2>
 <p>写了一个shell脚本，在四台服务器上创建用户<code>dase-dis</code>（注意确保四台服务器的用户名和密码一致才可以使用）:</p>
 <p>先<code>sudo apt install sshpass</code>，在Linux下执行脚本：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 服务器IP地址列表</span></span><br><span class="line">ip_list=(<span class="string">"xxxx"</span> <span class="string">"xxxx"</span> <span class="string">"xxxx"</span> <span class="string">"xxxx"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置统一的密码</span></span><br><span class="line">password=<span class="string">"admin"</span></span><br><span class="line">ssh_password=<span class="string">"qwe157258."</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环遍历IP地址列表</span></span><br><span class="line"><span class="keyword">for</span> ip <span class="keyword">in</span> <span class="string">"<span class="variable">${ip_list[@]}</span>"</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Connecting to <span class="variable">$ip</span>..."</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 连接服务器并创建用户</span></span><br><span class="line">    sshpass -p <span class="string">"<span class="variable">$ssh_password</span>"</span> ssh -o StrictHostKeyChecking=no root@<span class="variable">$ip</span> &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">        # 创建用户并设置密码</span></span><br><span class="line"><span class="string">        useradd -m -s /bin/bash dase-dis</span></span><br><span class="line"><span class="string">        echo "dase-dis:$password" | chpasswd</span></span><br><span class="line"><span class="string">        # 添加用户到sudo组</span></span><br><span class="line"><span class="string">        usermod -aG sudo dase-dis</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"User dase-dis created on <span class="variable">$ip</span> with password <span class="variable">$password</span>"</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 服务器IP地址列表</span></span><br><span class="line">ip_list=(<span class="string">"xxxx"</span> <span class="string">"xxxx"</span> <span class="string">"xxxx"</span> <span class="string">"xxxx"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置统一的密码</span></span><br><span class="line">password=<span class="string">"admin"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环遍历IP地址列表</span></span><br><span class="line"><span class="keyword">for</span> ip <span class="keyword">in</span> <span class="string">"<span class="variable">${ip_list[@]}</span>"</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Connecting to <span class="variable">$ip</span>..."</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 连接服务器并创建用户</span></span><br><span class="line">    sshpass -p <span class="string">"<span class="variable">$ssh_password</span>"</span> ssh -o StrictHostKeyChecking=no root@<span class="variable">$ip</span> &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">        # 创建用户并设置密码</span></span><br><span class="line"><span class="string">        useradd -m -s /bin/bash dase-dis</span></span><br><span class="line"><span class="string">        echo "dase-dis:$password" | chpasswd</span></span><br><span class="line"><span class="string">        # 添加用户到sudo组</span></span><br><span class="line"><span class="string">        usermod -aG sudo dase-dis</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"User dase-dis created on <span class="variable">$ip</span> with password <span class="variable">$password</span>"</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>执行结果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404282346549.png"></p>
 <hr>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 服务器IP地址列表</span></span><br><span class="line">ip_list=(<span class="string">"server1_ip"</span> <span class="string">"server2_ip"</span> <span class="string">"server3_ip"</span> <span class="string">"server4_ip"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环遍历IP地址列表</span></span><br><span class="line"><span class="keyword">for</span> ip <span class="keyword">in</span> <span class="string">"<span class="variable">${ip_list[@]}</span>"</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Configuring SSH key for <span class="variable">$ip</span>..."</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 生成SSH密钥对（如果不存在）</span></span><br><span class="line">    <span class="keyword">if</span> [ ! -f ~/.ssh/id_rsa ]; <span class="keyword">then</span></span><br><span class="line">        ssh-keygen -t rsa -N <span class="string">""</span> -f ~/.ssh/id_rsa</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将公钥复制到目标服务器上</span></span><br><span class="line">    ssh-copy-id -i ~/.ssh/id_rsa.pub root@<span class="variable">$ip</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 嵌套循环，将该公钥发送到除自己外的每个服务器</span></span><br><span class="line">    <span class="keyword">for</span> target_ip <span class="keyword">in</span> <span class="string">"<span class="variable">${ip_list[@]}</span>"</span></span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="string">"<span class="variable">$ip</span>"</span> != <span class="string">"<span class="variable">$target_ip</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"Copying SSH key to <span class="variable">$target_ip</span>..."</span></span><br><span class="line">            ssh-copy-id -i ~/.ssh/id_rsa.pub root@<span class="variable">$target_ip</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"SSH key configured for <span class="variable">$ip</span>."</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"SSH key configured for all servers successfully."</span></span><br></pre></td></tr></table></figure>
+<h2 id="服务器之间免密登录">1.2 服务器之间免密登录</h2>
+<p>实现四台服务器之间ssh免密登录</p>
+<h3 id="安装openssh">1.2.1 安装openssh</h3>
+<p>在四台服务器上执行</p>
+<ul>
+<li><code>sudo apt-get install openssh-server</code> 安装openssh</li>
+</ul>
+<h3 id="更改主机名">1.2.2 更改主机名</h3>
+<p>在1号机（主节点，在文章开头编号1）执行： -
+<code>sudo hostnamectl set-hostname ecnu01</code> 更改主机名</p>
+<p>在2号机（从节点，在文章开头编号2）执行： -
+<code>sudo hostnamectl set-hostname ecnu02</code></p>
+<p>...以此类推 - <code>sudo hostnamectl set-hostname ecnu03</code></p>
+<ul>
+<li><code>sudo hostnamectl set-hostname ecnu04</code></li>
+</ul>
+<p>四台服务器都执行完毕后，断开ssh重新连接，观察到主机名字已经成功更改</p>
+<p><img src="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292322849.png"></p>
+<h3 id="更改hosts">1.2.3 更改hosts</h3>
+<p>原理：</p>
+<blockquote>
+<p><code>Hosts</code> 文件是本地计算机上的文本文件，用于将主机名与
+<code>IP</code> 地址关联起来,绕过 <code>DNS</code>
+解析。<code>Linux hosts</code> 文件的格式通常是：</p>
+<p><code>IP地址    主机名    [别名...]</code></p>
+<p>在 <code>/etc/hosts</code> 路径下，每行代表一个主机名到
+<code>IP</code> 地址的映射。例如： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1   localhost</span><br><span class="line">::1         localhost</span><br><span class="line">192.168.1.2 example.com</span><br></pre></td></tr></table></figure>
+其中，<code>127.0.0.1</code> 和 <code>::1</code> 映射到
+<code>localhost</code>，<code>192.168.1.2</code> 映射到
+<code>example.com</code>。<code>hosts</code> 文件允许手动指定主机名与
+<code>IP</code> 地址的对应关系，用于特定网络配置和测试。</p>
+</blockquote>
+<p><strong>开始修改：</strong></p>
+<p>在四台机上执行以下操作：</p>
+<ul>
+<li><code>sudo vim /etc/hosts</code></li>
+</ul>
+<p>在<code>hosts</code>文件后追加（<strong>ip需要改成自己的哇</strong>）：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IP地址 主机名</span></span><br><span class="line">8.219.108.46 ecnu01</span><br><span class="line">47.236.20.161 ecnu02</span><br><span class="line">47.236.157.142 ecnu03</span><br><span class="line">47.236.115.157 ecnu04</span><br></pre></td></tr></table></figure>
+<h3 id="拷贝ssh公钥">1.2.4 拷贝ssh公钥</h3>
+<p><strong>除主机外的三台机依次执行下面命令：</strong></p>
+<p>作用是将除主机外的三台机的ssh公钥拷贝到主中，实现其余三台机器到主机的ssh免密登录</p>
+<ul>
+<li><p><code>ssh-keygen -t rsa</code> 生成ssh密钥</p></li>
+<li><p><code>ssh dase-dis@ecnu01 'mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys' &lt; ~/.ssh/id_rsa.pub'</code>
+发送公钥到主机</p></li>
+<li><p><code>sudo service ssh restart &amp;&amp; chmod 700 ~/.ssh  &amp;&amp; chmod 600 ~/.ssh/authorized_keys</code>
+重启本机ssh服务+解决ssh文件夹的权限问题</p></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292330151.png"></p>
+<hr>
+<p><strong>主机执行：</strong></p>
+<p>作用是将主机的ssh公钥拷贝到其余三台机中，实现主机到其余三台机器的ssh免密登录</p>
+<ul>
+<li><p><code>scp ~/.ssh/authorized_keys dase-dis@ecnu02:/home/dase-dis/.ssh/authorized_keys</code></p></li>
+<li><p><code>scp ~/.ssh/authorized_keys dase-dis@ecnu03:/home/dase-dis/.ssh/authorized_keys</code></p></li>
+<li><p><code>scp ~/.ssh/authorized_keys dase-dis@ecnu04:/home/dase-dis/.ssh/authorized_keys</code></p></li>
+</ul>
+<p>上面的三条命令等价于命令：<code>for host in ecnu02 ecnu03 ecnu04; do scp ~/.ssh/authorized_keys dase-dis@$host:/home/dase-dis/.ssh/; done</code></p>
+<p>然后主机执行：</p>
+<p><code>sudo service ssh restart &amp;&amp; chmod 700 ~/.ssh  &amp;&amp; chmod 600 ~/.ssh/authorized_keys</code></p>
+<p>运行结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292335551.png"></p>
+<hr>
+<p><strong>验证：</strong></p>
+<p>互相ssh过去看看要不要输入密码 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ssh dase-dis@ecnu01</span><br><span class="line">exit</span><br><span class="line">ssh dase-dis@ecnu02</span><br><span class="line">exit</span><br><span class="line">ssh dase-dis@ecnu03</span><br><span class="line">exit</span><br><span class="line">ssh dase-dis@ecnu04</span><br><span class="line">exit</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置java环境">1.3 配置Java环境</h2>
+<h2 id="修改.bashrc文件">2.4 修改.bashrc文件</h2>
+<p>登录<strong>客户机</strong>，用户<code>dase-dis</code>：</p>
+<ul>
+<li><p><code>vi ~/.bashrc</code></p></li>
+<li><p>按<code>i</code>进入编辑模式，按方向键到文件最后一行，输入<code>export TERM=xterm-color</code></p></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292240144.png"></p>
+<ul>
+<li><p>按<code>Esc</code>键退出编辑模式，输入<code>:wq</code>保存退出</p></li>
+<li><p>使<code>.bashrc</code>配置生效：<code>source ~/.bashrc</code></p></li>
+</ul>
+<h2 id="下载并安装spark">1.4 下载并安装Spark</h2>
+<p>在四台机上下载并安装Spark:</p>
+<ul>
+<li><p>下载安装包：<code>wget http://archive.apache.org/dist/spark/spark-2.4.7/spark-2.4.7-bin-without-hadoop.tgz</code></p></li>
+<li><p>解压安装包：<code>tar -zxvf spark-2.4.7-bin-without-hadoop.tgz</code></p></li>
+<li><p>改名：<code>mv ~/spark-2.4.7-bin-without-hadoop ~/spark-2.4.7</code></p></li>
+</ul>
+<p>下载： <img src="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292248585.png"></p>
+<p>上述步骤完成后： <img src="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292257700.png"></p>
+<h2 id="修改配置">1.5 修改配置</h2>
+<ul>
+<li><p><code>cp /home/dase-dis/spark-2.4.7/conf/spark-env.sh.template /home/dase-dis/spark-2.4.7/conf/spark-env.sh</code></p></li>
+<li><p><code>vim /home/dase-dis/spark-2.4.7/conf/spark-env.sh</code></p></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">因为下载的是Hadoop Free版本的Spark, 所以需要配置Hadoop的路径</span></span><br><span class="line">HADOOP_HOME=/home/dase-dis/hadoop-2.10.1</span><br><span class="line">export SPARK_DIST_CLASSPATH=$($HADOOP_HOME/bin/hadoop classpath)</span><br><span class="line">export LD_LIBRARY_PATH=$HADOOP_HOME/lib/native:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
+<ul>
+<li>sudo apt-get install openssh-server</li>
+<li>sudo hostnamectl set-hostname ecnu01</li>
+<li>sudo hostnamectl set-hostname ecnu02</li>
+<li>sudo hostnamectl set-hostname ecnu03</li>
+<li>sudo hostnamectl set-hostname ecnu04</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292322849.png"></p>
+<hr>
+<p>sudo vim /etc/hosts</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IP地址 主机名</span></span><br><span class="line"></span><br><span class="line">8.219.108.46 ecnu01</span><br><span class="line">47.236.20.161 ecnu02</span><br><span class="line">47.236.157.142 ecnu03</span><br><span class="line">47.236.115.157 ecnu04</span><br></pre></td></tr></table></figure>
+<p>除主机外的三台机：</p>
+<ul>
+<li>ssh-keygen -t rsa</li>
+<li>ssh dase-dis@ecnu01 'mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt;
+~/.ssh/authorized_keys' &lt; ~/.ssh/id_rsa.pub'</li>
+<li>sudo service ssh restart &amp;&amp; chmod 700 ~/.ssh &amp;&amp;
+chmod 600 ~/.ssh/authorized_keys</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292330151.png"></p>
+<p>主机：</p>
+<p>scp ~/.ssh/authorized_keys
+dase-dis@ecnu02:/home/dase-dis/.ssh/authorized_keys scp
+~/.ssh/authorized_keys
+dase-dis@ecnu03:/home/dase-dis/.ssh/authorized_keys scp
+~/.ssh/authorized_keys
+dase-dis@ecnu04:/home/dase-dis/.ssh/authorized_keys</p>
+<p>= for host in ecnu02 ecnu03 ecnu04; do scp ~/.ssh/authorized_keys
+dase-dis@$host:/home/dase-dis/.ssh/; done</p>
+<p>sudo service ssh restart &amp;&amp; chmod 700 ~/.ssh &amp;&amp; chmod
+600 ~/.ssh/authorized_keys</p>
+<p><img src="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292335551.png"></p>
+<p>验证：互相ssh过去看看要不要输入密码 ssh dase-dis@ecnu01 exit ssh
+dase-dis@ecnu02 exit ssh dase-dis@ecnu03 exit ssh dase-dis@ecnu04
+exit</p>
 
         
       </div>
@@ -436,10 +573,15 @@ mjx-container[display="true"] + br {
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left  disabled "
+  <a class="article-nav-btn left "
+    
+      href="/2024/04/29/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/"
+      title="[知识点梳理]软件工程导论"
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
+      
+        [知识点梳理]软件工程导论
         
     </p>
   </a>
