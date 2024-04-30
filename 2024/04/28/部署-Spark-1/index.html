@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292335551.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301104527.png">
 <meta property="article:published_time" content="2024-04-28T11:48:24.000Z">
-<meta property="article:modified_time" content="2024-04-30T03:13:02.305Z">
+<meta property="article:modified_time" content="2024-04-30T03:13:33.533Z">
 <meta property="article:author" content="fengwm">
 <meta property="article:tag" content="部署">
 <meta property="article:tag" content="JDK">
@@ -293,14 +293,14 @@ mjx-container[display="true"] + br {
                 <div class="category-count">3</div>
             </a>
         
-            <a class="category-link" href="/categories/%E9%83%A8%E7%BD%B2/">
-                部署
-                <div class="category-count">4</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">
                 计算机视觉
                 <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%83%A8%E7%BD%B2/">
+                部署
+                <div class="category-count">4</div>
             </a>
         </div>
     </div>
@@ -442,9 +442,10 @@ mjx-container[display="true"] + br {
 <code>sudo hostnamectl set-hostname ecnu01</code> 更改主机名</p>
 <p>在2号机（从节点，在文章开头编号2）执行： -
 <code>sudo hostnamectl set-hostname ecnu02</code></p>
-<p>...以此类推 - <code>sudo hostnamectl set-hostname ecnu03</code></p>
+<p>...以此类推</p>
 <ul>
-<li><code>sudo hostnamectl set-hostname ecnu04</code></li>
+<li><p><code>sudo hostnamectl set-hostname ecnu03</code></p></li>
+<li><p><code>sudo hostnamectl set-hostname ecnu04</code></p></li>
 </ul>
 <p>四台服务器都执行完毕后，断开ssh重新连接，观察到主机名字已经成功更改</p>
 <p><img src="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292322849.png"></p>
