@@ -192,6 +192,10 @@ export JAVA_HOME=/home/dase-dis/jdk1.8.0_202
 集群工作正常：
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301622499.png)
+
+查看节点信息：
+
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301624181.png)
 ----------------------------
 
 ## 3.4 集群异常解决
