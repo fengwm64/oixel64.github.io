@@ -1,5 +1,5 @@
 ---
-title: '[部署]Spark部署-1 SSH & JDK'
+title: '[部署]Spark-1 SSH & JDK部署'
 date: 2024-04-28 19:48:24
 tags: 
 - 部署 
