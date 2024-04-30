@@ -125,13 +125,13 @@ done
 
 ### 1.2.4 拷贝ssh公钥
 
-**除主机外的三台机依次执行下面命令：**
+**在所有机器依次执行下面命令：**
 
 作用是将除主机外的三台机的ssh公钥拷贝到主中，实现其余三台机器到主机的ssh免密登录
 
 - `ssh-keygen -t rsa` 生成ssh密钥
 
-- `ssh dase-dis@ecnu01 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub'` 发送公钥到主机
+- `ssh dase-dis@ecnu01 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub` 发送公钥到主机
 
 - `sudo service ssh restart && chmod 700 ~/.ssh  && chmod 600 ~/.ssh/authorized_keys` 重启本机ssh服务+解决ssh文件夹的权限问题
 
@@ -141,7 +141,7 @@ done
 
 **主机执行：**
 
-作用是将主机的ssh公钥拷贝到其余三台机中，实现主机到其余三台机器的ssh免密登录
+作用是将主机的ssh认证拷贝到其余三台机中，实现其余三台机器之间的ssh免密登录
 
 - `scp ~/.ssh/authorized_keys dase-dis@ecnu02:/home/dase-dis/.ssh/authorized_keys`
 
