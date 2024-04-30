@@ -346,7 +346,7 @@ mjx-container[display="true"] + br {
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            916 words 
+            3.7k words 
           </div>
         </div>
         
@@ -360,26 +360,30 @@ mjx-container[display="true"] + br {
               请确保已经完成1
 1.下载
 地址：https://archive.apache.org/dist/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz
-在四台机上执行：
+在主节点上执行：
 
 wget https://archive.apache.org/dist/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz
-
-2.4 修改.bashrc文件
-登录客户机，用户dase-dis：
-
-vi ~/.bashrc
-按i进入编辑模式，按方向键到文件最后一行，输入export TERM=xterm-color
+tar -zxvf hadoop-2.10.1.tar.gz
 
 
 
-按Esc键退出编辑模式，输入:wq保存退出
-使.bashrc配置生效：source ~/.bashrc
+cd ~/hadoop-2.10.1/
+./bin/hadoop version
 
-1.4 下载并安装Spark
-在四台机上下载并安装Spark:
 
-下载安装包：wget http://archive.apache.org/dist/spark/spark-2.4.7/spark-2.4.7-bin-without-hadoop.tgz
-解...
+2.修改配置
+在主节点上执行：
+
+修改 slaves 文件:
+vim ~/hadoop-2.10.1/etc/hadoop/slaves
+
+修改为： 12ecnu02ecnu03
+
+
+修改 core-site.xml:
+vim ~/hadoop-2.10.1/etc/hadoop/core-site.xml
+
+12345678910111213141516171819202122232425262...
             
           </div>
         
