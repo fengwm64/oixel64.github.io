@@ -81,6 +81,7 @@ done
 - `sudo hostnamectl set-hostname ecnu02`
 
 ...以此类推
+
 - `sudo hostnamectl set-hostname ecnu03`
 
 - `sudo hostnamectl set-hostname ecnu04`
