@@ -6,11 +6,10 @@ tags:
 - 大数据
 categories: 
 - 大数据
+- 编程
 ---
 
-# 1.经典的 WordCount 程序
-
-程序源码如下:
+经典的`WordCount`程序源码如下:
 
 ```java
 package cn.edu.ecnu.spark.example.java.wordcount;
@@ -88,7 +87,7 @@ public class WordCount {
 
 ----------------
 
-## 1.1 新建maven项目
+# 1 新建maven项目
 
 - 在`idea`新建项目：
 
@@ -123,13 +122,13 @@ public class WordCount {
 
 - 更新依赖
 
-## 1.2 新建 Java 代码
+# 2 新建 Java 代码
 
 - 新建包`cn.edu.ecnu.spark.example.java.wordcount`，类`WordCount`: 
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202405021833109.png)
 
-## 1.3 打包
+# 3 打包
 
 - 打包为`.jar`:
 
@@ -137,13 +136,13 @@ public class WordCount {
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202405021800838.png)
 
-## 1.4 传送到客户端
+# 4 传送到客户端
 
 - 将打包好的`.jar`(位置`项目路径\out\artifacts\spark_wordcount_jar`)传到**客户端**的`/home/dase-dis/spark-2.4.7/myapp`
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202405021803426.png)
 
-## 1.5 下载测试数据
+# 5 下载测试数据
 
 - 下载：`wget https://github.com/ymcui/Chinese-Cloze-RC/archive/master.zip`
 
@@ -153,7 +152,7 @@ public class WordCount {
 
 - 拷贝到集群：`~/hadoop-2.10.1/bin/hdfs dfs -put ~/Chinese-Cloze-RC-master/people_daily/pd/pd.test spark_input/pd.test`
 
-## 1.6 提交jar任务
+# 6 提交jar任务
 
 - 删除输出文件夹：`~/hadoop-2.10.1/bin/hdfs dfs -rm -r spark_output`
 
