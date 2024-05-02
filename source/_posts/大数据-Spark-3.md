@@ -123,15 +123,14 @@ export JAVA_HOME=/home/dase-dis/jdk1.8.0_202
 
 - `scp -r spark-2.4.7 dase-dis@ecnu04:~/`
 
-## 2.2 HDFS中建立目录
+## 2.2 HDFS中建立日志目录
 
 - `~/hadoop-2.10.1/bin/hdfs dfs -mkdir -p /tmp/spark_history`
 
 ## 2.3 启动 spark
 
 千辛万苦, 终于到启动了
-
-![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202405021003091.png)
+<img src="https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202405021003091.png" alt="" width="25%">
 
 在**主节点**执行:
 
@@ -183,6 +182,48 @@ ecnu02: full log in /home/dase-dis/spark-2.4.7/logs/spark-dase-dis-org.apache.sp
 
 好不容易搞好了, 来玩一下: 
 
+## 3.1 创建文件夹&上传文件
 
+- 创建`spark_input`文件夹: `~/hadoop-2.10.1/bin/hdfs dfs -mkdir -p spark_input`
+
+- 上传文件`RELEASE`到`spark_input`: `~/hadoop-2.10.1/bin/hdfs dfs -put ~/spark-2.4.7/RELEASE spark_input/`
+
+在`hadood`的页面可以看到, 文件`RELEASE`存储在两个节点中: 
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202405021152426.png)
+
+## 3.2 启动 Spark Shell
+
+- 启动`spark-shell`: `~/spark-2.4.7/bin/spark-shell --master spark://ecnu01:7077`
+
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202405021309487.png)
+
+- 键入以下`Scala`代码:
+
+```scala
+val sc = spark.sparkContext
+val textFile = sc.textFile("hdfs://ecnu01:9000/user/dase-dis/spark_input/RELEASE")
+val counts = textFile.flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _)
+counts.collect().foreach(println)
+```
+
+shell输出:
+
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202405021317280.png)
+
+
+可以在网页查看到正在运行的任务信息:
+
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202405021310029.png)
+
+到此Spark集群就已经顺利搭建完毕了
+
+# 4.停止集群
+
+如果你希望停止集群:
+
+- 停止`Spark`: `/spark-2.4.7/sbin/stop-all.sh`
+
+- 停止`Spark`日志服务: `/spark-2.4.7/sbin/stop-history-server.sh`
+
+- 停止`HDFS`服务: `/hadoop-2.10.1/sbin/stop-dfs.sh`
