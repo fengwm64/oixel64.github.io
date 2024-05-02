@@ -1,11 +1,13 @@
 ---
-title: '[部署]Spark-1 SSH & JDK部署'
+title: '[大数据]Spark-1 SSH & JDK部署'
 date: 2024-04-28 19:48:24
 tags: 
 - 部署 
 - JDK
 - SSH
+- 大数据
 categories: 
+- 大数据
 - 部署
 ---
 
@@ -123,6 +125,21 @@ done
 47.236.115.157 ecnu04
 ```
 
+**!!!!!!!注意!!!!!!!!!**
+**!!!!!!!注意!!!!!!!!!**
+**!!!!!!!注意!!!!!!!!!**
+
+**在云服务器配置时, 本机使用内网IP, 其余为公网IP**
+
+查看内网IP:
+
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202405021028165.png)
+
+hosts数值示例:
+
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202405021027955.png)
+
+
 ### 1.2.4 拷贝ssh公钥
 
 **在所有机器依次执行下面命令：**
@@ -174,6 +191,21 @@ exit
 ssh dase-dis@ecnu04
 exit
 ```
+
+## 1.3 关闭防火墙
+
+如果你是本地虚拟机:
+
+- `systemctl stop firewalld.service`
+
+- `systemctl disable firewalld.service `
+
+如果你是云服务器:
+
+**请确保你知道自己在干什么, 关闭防火墙(开放所有端口)可能导致服务器被入侵**
+
+![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202405021144615.png)
+
 
 # 2.配置Java环境
 

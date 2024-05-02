@@ -1,11 +1,12 @@
 ---
-title: '[部署]Spark-2 Hadoop 2.x部署'
+title: '[大数据]Spark-2 Hadoop 2.x部署'
 date: 2024-04-30 11:09:16
 tags: 
 - 部署 
 - Hadoop
-- SSH
+- 大数据
 categories: 
+- 大数据
 - 部署
 ---
 
@@ -17,19 +18,22 @@ categories:
 
 **在主节点上执行：**
 
-- `wget https://archive.apache.org/dist/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz`
+- 下载:`wget https://archive.apache.org/dist/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz`
 
-- `tar -zxvf hadoop-2.10.1.tar.gz`
+- 解压:`tar -zxvf hadoop-2.10.1.tar.gz`
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301317432.png)
 
-- `cd ~/hadoop-2.10.1/`
+- 进入文件夹:`cd ~/hadoop-2.10.1/`
 
-- `./bin/hadoop version`
+- 查看下载软件的版本:`./bin/hadoop version`
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301319210.png)
 
+
 # 2.修改配置
+
+## 2.1 修改slaves
 
 **在主节点上执行：**
 
@@ -41,7 +45,7 @@ ecnu02
 ecnu03
 ```
 
----------------
+## 2.2 修改core-site
 
 - 修改 core-site.xml: `vim ~/hadoop-2.10.1/etc/hadoop/core-site.xml`
 
@@ -79,9 +83,8 @@ ecnu03
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301329297.png)
 
-**使用云服务器的！！！！注意** ecnu01需要改成内网IP，详细看后文
 
----------------
+## 2.3 修改hdfs-site
 
 - 修改 hdfs-site.xml: `vim ~/hadoop-2.10.1/etc/hadoop/hdfs-site.xml`
 
@@ -120,19 +123,19 @@ ecnu03
 </configuration>
 ```
 
---------------
+## 2.4 修改hadoop-env
 
 - 修改 hadoop-env.sh: `vim ~/hadoop-2.10.1/etc/hadoop/hadoop-env.sh`
   
 - 将`JAVA_HOME`改为：
 
-```xml
+```shell
 export JAVA_HOME=/home/dase-dis/jdk1.8.0_202
 ```
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301434373.png)
 
-----------------------
+## 2.5 拷贝安装包
 
 好了好了，终于改完了，接下来将改好的这份hadoop拷贝到其余三台机：
 
@@ -145,6 +148,7 @@ export JAVA_HOME=/home/dase-dis/jdk1.8.0_202
 其实打包一下拷贝会更加好的，这里偷懒了
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301352765.png)
+
 
 # 3.启动HDFS服务
 
@@ -196,13 +200,12 @@ export JAVA_HOME=/home/dase-dis/jdk1.8.0_202
 查看节点信息：
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301624181.png)
-----------------------------
 
 ## 3.4 集群异常解决
 
-1. 如果因为一些情况导致集群第一次没有启动成功，请在主节点：
+1. 如果因为一些情况导致集群第一次没有启动成功，请在主、从节点：
 
-- 停止集群：`~/hadoop-2.10.1/sbin/stop-dfs.sh`
+- 在**主节点**, 停止集群：`~/hadoop-2.10.1/sbin/stop-dfs.sh`
 
 - 删除运行生成文件：`cd ~/hadoop-2.10.1/tmp/dfs && rm -rf *`
 
@@ -210,76 +213,39 @@ export JAVA_HOME=/home/dase-dis/jdk1.8.0_202
 
 - 解决端口占用：`sudo reboot`
 
-- 重新执行格式化命令：`~/hadoop-2.10.1/bin/hdfs namenode -format`
+- 在**主节点**, 重新执行格式化命令：`~/hadoop-2.10.1/bin/hdfs namenode -format`
 
 --------------------
 
-2. **使用云服务器的请注意：**
+2. **云服务器可能会出现的错误**
 
-- 错误日志：
+- **错误日志：**
 
 ![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301613498.png)
 
-- 提示绑定错误或`2024-04-30 16:06:52,547 INFO org.apache.hadoop.util.ExitUtil: Exiting with status 1: java.net.BindException: Problem binding to [ecnu01:9000] java.net.BindException: Cannot assign requested address; For more details see:  http://wiki.apache.org/hadoop/BindException`的，请将`core-site.xml`文件中的`encu01`改为**内网IP**。
+- 提示绑定错误或`2024-04-30 16:06:52,547 INFO org.apache.hadoop.util.ExitUtil: Exiting with status 1: java.net.BindException: Problem binding to [ecnu01:9000] java.net.BindException: Cannot assign requested address; For more details see:  http://wiki.apache.org/hadoop/BindException`的
 
-- 获取内网IP：
+- 检查文章`spark-1` 中提到的hosts设置是否正确, 设置好了不会出现这种情况
 
-![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404301614410.png)
-
-- 参考：
+- **参考：**
 
 1. https://blog.csdn.net/xiaosa5211234554321/article/details/119627974
 
 2. https://cwiki.apache.org/confluence/display/HADOOP2/BindException
 
 
+# 4.HDFS Shell
 
+> 注意:第一次使用 HDFS 时,需要首先在 HDFS 中创建用户目录
 
+- 打开工作目录: `cd ~/hadoop-2.10.1`
 
+- 为当前 dase-dis 用户创建一个用户根目录: `./bin/hdfs dfs -mkdir -p /user/dase-dis`
 
----------------------------
+HDFS Shell目录操作示例:
 
-## 2.4 修改.bashrc文件
+- 显示 hdfs:///user/dase-dis 下的文件: `./bin/hdfs dfs -ls /user/dase-dis`
 
-登录**客户机**，用户`dase-dis`：
+- 新建 hdfs:///user/dase-dis/input 目录: `./bin/hdfs dfs -mkdir /user/dase-dis/input`
 
-- `vi ~/.bashrc`
-
-- 按`i`进入编辑模式，按方向键到文件最后一行，输入`export TERM=xterm-color`
-
-![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292240144.png)
-
-- 按`Esc`键退出编辑模式，输入`:wq`保存退出
-
-- 使`.bashrc`配置生效：`source ~/.bashrc`
-
-
-## 1.4 下载并安装Spark
-
-在四台机上下载并安装Spark:
-
-- 下载安装包：`wget http://archive.apache.org/dist/spark/spark-2.4.7/spark-2.4.7-bin-without-hadoop.tgz`
-
-- 解压安装包：`tar -zxvf spark-2.4.7-bin-without-hadoop.tgz`
-
-- 改名：`mv ~/spark-2.4.7-bin-without-hadoop ~/spark-2.4.7`
-
-下载：
-![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292248585.png)
-
-上述步骤完成后：
-![](https://cdn.jsdelivr.net/gh/oixel64/imgs/imgs/202404292257700.png)
-
-
-## 1.5 修改配置
-
-- `cp /home/dase-dis/spark-2.4.7/conf/spark-env.sh.template /home/dase-dis/spark-2.4.7/conf/spark-env.sh`
-
-- `vim /home/dase-dis/spark-2.4.7/conf/spark-env.sh`
-
-```shell
-# 因为下载的是Hadoop Free版本的Spark, 所以需要配置Hadoop的路径
-HADOOP_HOME=/home/dase-dis/hadoop-2.10.1
-export SPARK_DIST_CLASSPATH=$($HADOOP_HOME/bin/hadoop classpath)
-export LD_LIBRARY_PATH=$HADOOP_HOME/lib/native:$LD_LIBRARY_PATH
-```
+- 删除 hdfs:///user/dase-dis/input 目录: `./bin/hdfs dfs -rm -r /user/dase-dis/input`
