@@ -273,14 +273,14 @@ mjx-container[display="true"] + br {
                 <div class="category-count">4</div>
             </a>
         <div class="children"><div class="category-box">
-            <a class="category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E7%BC%96%E7%A8%8B/">
-                编程
-                <div class="category-count">1</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E9%83%A8%E7%BD%B2/">
                 部署
                 <div class="category-count">3</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E7%BC%96%E7%A8%8B/">
+                编程
+                <div class="category-count">1</div>
             </a>
         </div></div>
             <a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
@@ -298,14 +298,14 @@ mjx-container[display="true"] + br {
                 <div class="category-count">3</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">
-                计算机视觉
-                <div class="category-count">1</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E9%83%A8%E7%BD%B2/">
                 部署
                 <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">
+                计算机视觉
+                <div class="category-count">1</div>
             </a>
         </div>
     </div>
@@ -444,7 +444,7 @@ Pandoc https://pandoc.org/
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            0 words 
+            1.2k words 
           </div>
         </div>
         
@@ -455,8 +455,32 @@ Pandoc https://pandoc.org/
         
           <div class="truncate-text">
             
-              
+              1.基本思想
+逻辑回归是一种广义上的线性回归分析模型，简单来看就是将线性回归的结果y通过一个映射函数sigmoid映射到0-1区间，将sigmoid函数输出当做概率值，当概率值大于0.5时分类为正类，反之反类。
+2.模型
 
+
+其中，映射函数sigmoid ：
+
+3.推导过程
+3.1 表示正/负类概率
+
+逻辑回归是二分类算法，定义 正类标签为，负类标签为。
+
+
+这里既然是定义，说明是人为规定的，原因在于这样定义对后续的推导可以起到简化作用，后文紧接着会提到。如果你比较叛逆，不这样定义也是可以的，就是推导会非常麻烦。
+
+
+接下来是第二个涉及定义的地方，定义将sigmoid函数输出为概率值，sigmoid函数输出是[0,1]区间的，恰好符合概率的要求。且定义正类的概率为，负类自然就是。
+
+
+综上，
+则给定一些特征，其是正类的概率写作
+ 或 ；负类的概率写作  或 
+关键一步的化繁为简，将分类为正类的概率 和
+分类为负类的概率 同时用一条公式表达出来：
+令合并令原式变换为
+非常非常巧妙是不是，自己尝试代入标签y=1或者y=0看看效果是不是...
             
           </div>
         
