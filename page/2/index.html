@@ -663,7 +663,7 @@ Pandoc https://pandoc.org/
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            6.9k words 
+            6.8k words 
           </div>
         </div>
         
@@ -684,7 +684,12 @@ Pandoc https://pandoc.org/
 说明：
 
 正规方程形式求解，即为直接求  的最小值：
-先展开对进行求导令得
+先展开  ：
+
+对  进行求导：
+
+令  得：
+
 上述结果即为求解结果，需要说明的是：特征矩阵𝑿不满秩（即存在特征间的线性相关性），则正规方程求解过程中的矩阵求逆操作可能会导致数值不稳定性。
 1.2 梯度下降
 
@@ -709,7 +714,7 @@ Pandoc https://pandoc.org/
 
 2.Python实现
 2.0 导包
-123456789101112# 导入所需的包import numpy as npimport pandas as pdimport matplotlib.pyplot as pltimport seaborn as snsfrom sklearn.impute import SimpleImputerfrom s...
+123456789101112# 导入所需的包import numpy as npimport pandas as pdimport matplotlib.pyplot as pltimport seaborn as snsfrom sklearn.impute import ...
             
           </div>
         
