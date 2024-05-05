@@ -663,7 +663,7 @@ Pandoc https://pandoc.org/
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            4.5k words 
+            6.9k words 
           </div>
         </div>
         
@@ -678,13 +678,38 @@ Pandoc https://pandoc.org/
 因为Hexo博客对latex公式支持问题颇多，故直接上图片了
 1.1 闭式
 
+模型：
+损失函数：
+目标：
+说明：
+
+正规方程形式求解，即为直接求  的最小值：
+先展开对进行求导令得
+上述结果即为求解结果，需要说明的是：特征矩阵𝑿不满秩（即存在特征间的线性相关性），则正规方程求解过程中的矩阵求逆操作可能会导致数值不稳定性。
 1.2 梯度下降
+
+模型：
+注：表示的第维
+损失函数：
+注：表示第个样本
+目标：
+说明：
+
+损失函数 
+是一个关于参数  的二次型，对
+ 进行展开：
+
+对 
+进行偏微分求导运算得到：
+
+每次根据梯度更新参数：
+
+梯度下降法步骤：
+ 
 
 2.Python实现
 2.0 导包
-123456789101112# 导入所需的包import numpy as npimport pandas as pdimport matplotlib.pyplot as pltimport seaborn as snsfrom sklearn.impute import SimpleImputerfrom sklearn.preprocessing import OneHotEncoderfrom sklearn.model_selection import train_test_splitimport time%matplotlib inline%config InlineBackend.figure_format = 'svg'
-2.1 读取数据集
-123456# 读取数据df = pd.read_csv("./housing.csv")# 预览数据print(df.head())print(df.info(...
+123456789101112# 导入所需的包import numpy as npimport pandas as pdimport matplotlib.pyplot as pltimport seaborn as snsfrom sklearn.impute import SimpleImputerfrom s...
             
           </div>
         
