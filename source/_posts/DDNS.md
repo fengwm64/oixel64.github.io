@@ -4,6 +4,7 @@ date: 2024-05-06 20:56:03
 tags:
 - DnsPod
 - DDNS
+categories: 部署
 ---
 
 # 1.前言
