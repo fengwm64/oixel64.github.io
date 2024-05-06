@@ -1,8 +1,9 @@
 ---
-layout: '[部署]老毛子系统路由器配置dnspod'
-title: DDNS
+title: '[部署]老毛子系统路由器配置DnsPod-DDNS'
 date: 2024-05-06 20:56:03
 tags:
+- DnsPod
+- DDNS
 ---
 
 # 1.前言
